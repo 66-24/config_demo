@@ -19,3 +19,5 @@ the placeholder expanded.
 
 I am not sure if I am doing something wrong or if its a bug in
 `Environment.getProperty(...)` specifically when a List is returned.
+
+See `DemoXmlConfigurationSource.addToEnvironment(...)` for  the issue.  
