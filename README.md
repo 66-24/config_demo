@@ -22,8 +22,10 @@ objects like `DemoProperties` that have configuration elements map to
 a List<String> do not have the property placeholders 
 within each item in the list resolved.
 
-Example: List of Strings representation of `demo.feature`
-`Second feature,Some feature in ${demo.version}`
+Example: `demo.feature` in demo_config.xml maps to a `List<String>` in DemoProperties
+```
+Second feature,Some feature in ${demo.version}
+```
 
 
 See `DemoXmlConfigurationSource.addToEnvironment(...)` for  the issue.  
