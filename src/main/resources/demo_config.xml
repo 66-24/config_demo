@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<config>
+    <demo>
+        <about>app version is ${demo.version}</about>
+        <feature state="test">Second feature</feature>
+        <feature state="production">Some feature in ${demo.version}</feature>
+        <state type="test">first</state>
+    </demo>
+</config>
