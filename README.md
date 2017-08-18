@@ -1,6 +1,6 @@
 # Sample Custom XML PropertySource
 This project uses an external XML configuration file `demo_config.xml`.
-This is done by registering a `Spring Run Listener` to read the XML 
+This is done by registering a `SpringApplicationRunListener` to read the XML 
 configuration using apache commons configuration and adding the resultant 
 `PropertySource` to the `Environment`.
 Properties are mapped to Rich Value objects using the `@ConfigurationProperties` annotation.
@@ -18,9 +18,9 @@ with placeholders _not_ expanded.
 the placeholder expanded.
 
 The end result of this issue is that `Configuration` value 
-objects like `DemoProperties` are mapped to a List<String>
-with the property placeholders in the Strings not being
-resolved.
+objects like `DemoProperties` that have configuration elements map to 
+a List<String> do not have the property placeholders 
+within each item in the list resolved.
 
 Example: List of Strings representation of `demo.feature`
 `Second feature,Some feature in ${demo.version}`
@@ -59,7 +59,7 @@ Placeholders are only resolved for Strings as seen
 ### Fix
 One fix is to autowire an Environment in `DemoProperties.java`
 Use `Environment.resolvePlaceholders(...)` to resolve each
-entry in the list of Strings.
+item in the `List<String>`.
 
 ```
  public List<String> getFeature() {
