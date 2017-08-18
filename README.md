@@ -1,4 +1,4 @@
-#Sample Custom XML PropertySource
+# Sample Custom XML PropertySource
 This project uses an external xml configuration file `demo_config.xml`.
 This is done by registering a `Spring Run Listener` to read the xml 
 configuration using apache commons configuration and adding the resultant 
