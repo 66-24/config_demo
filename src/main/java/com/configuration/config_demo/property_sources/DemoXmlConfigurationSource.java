@@ -7,6 +7,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.EnumerablePropertySource;
 
 import java.util.ArrayList;
+
 @Slf4j
 public class DemoXmlConfigurationSource extends EnumerablePropertySource<XMLConfiguration> {
     private DemoXmlConfigurationSource(String name, XMLConfiguration source) {
@@ -28,8 +29,8 @@ public class DemoXmlConfigurationSource extends EnumerablePropertySource<XMLConf
         environment.getPropertySources().addFirst(
                 new DemoXmlConfigurationSource("DemoAppConfiguration", xmlConfiguration));
         log.info("Demo.about: {}", environment.getProperty("demo.about"));
-        log.info("Placeholder expanded: {}", environment.getProperty("demo.feature(1)"));
-        log.info("BUG - Placeholder not expanded: {}", environment.getProperty("demo.feature"));
+        log.info("Placeholder expanded: {}", environment.getProperty("demo.feature{1}"));
+        log.info("BUG - Placeholder not expanded: {}", environment.getProperty("demo.feature",String.class));
         log.info("Demo Xml Configuration [{}] added to Environment", xmlConfiguration.getFile().getAbsolutePath());
     }
 
