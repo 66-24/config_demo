@@ -73,8 +73,8 @@ item in the `List<String>`.
 ```
 
 # Issue 2
-Mapping String to Instants in `DemoProperties`, an Invalid date string 
-causes the following error:
+Mapping `String` to `Instant` in `DemoProperties`, an Invalid date string 
+causes the following `ConverterNotFoundException: No converter found capable of converting from type [java.lang.String] to type [java.time.Instant]`:
 ```
 org.springframework.validation.BindException: org.springframework.boot.bind.RelaxedDataBinder$RelaxedBeanPropertyBindingResult: 1 errors
 Field error in object 'demo' on field 'endDateTime': rejected value [20080915T155300Z]; codes [typeMismatch.demo.endDateTime,typeMismatch.endDateTime,typeMismatch.java.time.Instant,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [demo.endDateTime,endDateTime]; arguments []; default message [endDateTime]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.time.Instant' for property 'endDateTime'; nested exception is org.springframework.core.convert.ConverterNotFoundException: No converter found capable of converting from type [java.lang.String] to type [java.time.Instant]]
