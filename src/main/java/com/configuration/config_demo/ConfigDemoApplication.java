@@ -5,13 +5,14 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 @Slf4j
+@EnableConfigurationProperties
 public class ConfigDemoApplication implements CommandLineRunner {
     private DemoProperties demoProperties;
     private Environment environment;
@@ -38,12 +39,8 @@ public class ConfigDemoApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("feature states: [{}]",featureStates);
         log.info("Demo: [{}]", demoProperties);
-        List<String> resolvedFeatures = demoProperties
-                .getFeature()
-                .stream()
-                .map(feature -> environment.resolvePlaceholders(feature))
-                .collect(Collectors.toList());
-        log.info("Resolved features: [{}]", resolvedFeatures);
+//        log.info("Demo endDateTime: {}", demoProperties.getEndDateTime().getDate());
+        log.info("Demo endDateTime: {}", demoProperties.getEndDateTime());
     }
 
 }

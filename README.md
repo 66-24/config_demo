@@ -11,7 +11,7 @@ Spring delegates the `getProperty()` calls to the underlying
 The XML configuration can refer to properties defined in application.properties
 and these placeholder's get expanded as expected.
 
-## Issue
+## Issue 1
 `environment.getProperty("demo.feature")` returns a list of `String`
 with placeholders _not_ expanded.
 `environment.getProperty("demo.feature{1})` returns a String and has
@@ -71,3 +71,29 @@ item in the `List<String>`.
                 .collect(Collectors.toList());
     }
 ```
+
+# Issue 2
+Mapping String to Instants in `DemoProperties`, an Invalid date string 
+causes the following error:
+```
+org.springframework.validation.BindException: org.springframework.boot.bind.RelaxedDataBinder$RelaxedBeanPropertyBindingResult: 1 errors
+Field error in object 'demo' on field 'endDateTime': rejected value [20080915T155300Z]; codes [typeMismatch.demo.endDateTime,typeMismatch.endDateTime,typeMismatch.java.time.Instant,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [demo.endDateTime,endDateTime]; arguments []; default message [endDateTime]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.time.Instant' for property 'endDateTime'; nested exception is org.springframework.core.convert.ConverterNotFoundException: No converter found capable of converting from type [java.lang.String] to type [java.time.Instant]]
+	at org.springframework.boot.bind.PropertiesConfigurationFactory.checkForBindingErrors(PropertiesConfigurationFactory.java:359) ~[spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.bind.PropertiesConfigurationFactory.doBindPropertiesToTarget(PropertiesConfigurationFactory.java:276) ~[spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+
+```
+This misleads the developer into thinking that the Converter
+has not been registered.
+
+The problem in this case is that the following date string
+is an invalid ISO-8601 format:
+
+```xml
+<endDateTime>20080915T155300Z</endDateTime>
+```
+The fix is to correct the date String to:
+```xml
+<endDateTime>2008-09-15T15:53:00Z</endDateTime>
+```
+
+

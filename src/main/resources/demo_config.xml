@@ -5,5 +5,7 @@
         <feature state="test">Second feature</feature>
         <feature state="production">Some feature in ${demo.version}</feature>
         <state type="test">first</state>
+        <endDateTime>2008-09-15T15:53:00Z</endDateTime>
+        <!--<endDateTime>20080915T155300Z</endDateTime>-->
     </demo>
 </config>
