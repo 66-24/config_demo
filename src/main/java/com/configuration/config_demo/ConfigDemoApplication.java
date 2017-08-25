@@ -39,7 +39,6 @@ public class ConfigDemoApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("feature states: [{}]",featureStates);
         log.info("Demo: [{}]", demoProperties);
-//        log.info("Demo endDateTime: {}", demoProperties.getEndDateTime().getDate());
         log.info("Demo endDateTime: {}", demoProperties.getEndDateTime());
     }
 
