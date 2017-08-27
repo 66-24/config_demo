@@ -1,5 +1,5 @@
 # Custom XML PropertySource 
-[![Travis](https://img.shields.io/travis/66-24/config_demo.svg)](https://travis-ci.org/66-24/config_demo) 
+[![Build Status](https://travis-ci.org/66-24/config_demo.svg?branch=master)](https://travis-ci.org/66-24/config_demo) 
 [![Coverage Status](https://coveralls.io/repos/github/66-24/config_demo/badge.svg?branch=master)](https://coveralls.io/github/66-24/config_demo?branch=master)
 
 This project uses an external XML configuration file `demo_config.xml`.
