@@ -1,4 +1,7 @@
-# Sample Custom XML PropertySource
+# Custom XML PropertySource 
+[![Travis](https://img.shields.io/travis/66-24/config_demo.svg)](https://travis-ci.org/66-24/config_demo) 
+[![Coverage Status](https://coveralls.io/repos/github/66-24/config_demo/badge.svg?branch=master)](https://coveralls.io/github/66-24/config_demo?branch=master)
+
 This project uses an external XML configuration file `demo_config.xml`.
 This is done by registering a `SpringApplicationRunListener` to read the XML 
 configuration using apache commons configuration and adding the resultant 
