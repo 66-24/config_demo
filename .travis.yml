@@ -4,5 +4,7 @@ sudo: false # faster builds
 before_install:
   - pip install --user codecov
 
+#https://github.com/trautonen/coveralls-maven-plugin
 after_success:
   - codecov
+  -  mvn clean test jacoco:report coveralls:report
