@@ -1,6 +1,6 @@
 # Spring-boot Custom XML PropertySource 
-[![Build Status](https://travis-ci.org/66-24/config_demo.svg?branch=master)](https://travis-ci.org/66-24/config_demo) 
-[![Coverage Status](https://coveralls.io/repos/github/66-24/config_demo/badge.svg?branch=master)](https://coveralls.io/github/66-24/config_demo?branch=master)
+[![travis](https://travis-ci.org/66-24/config_demo.svg?branch=master)](https://travis-ci.org/66-24/config_demo) 
+[![coverall](https://coveralls.io/repos/github/66-24/config_demo/badge.svg?branch=master)](https://coveralls.io/github/66-24/config_demo?branch=master)
 [![codecov](https://codecov.io/gh/66-24/config_demo/branch/master/graph/badge.svg)](https://codecov.io/gh/66-24/config_demo)
 
 This project uses an external XML configuration file `demo_config.xml`.
